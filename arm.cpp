@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-    map<string, uint32_t (*)(string, string)> OPERATORS;
+    map<string, uint32_t (*)(uint32_t, uint32_t)> OPERATORS;
     OPERATORS["ADD"] = ADD;
     OPERATORS["SUB"] = SUB;
     OPERATORS["AND"] = AND;
@@ -23,30 +23,14 @@ int main()
     ifstream reader;
     reader.open(fileName);
 
-    string line;
-    string operation, operand1, operand2;
-
-    while (getline(reader, line))
+    string operation;
+    uint32_t operand1, operand2;
+    while (reader >> operation >> hex >> operand1)
     {
-        istringstream ss(line);
-        string token;
-        int count = 0;
-        while (getline(ss, token, ' '))
+        if (operation.substr(0, 3) != "NOT")
         {
-            switch (count)
-            {
-            case 0:
-                operation = token;
-                break;
-            case 1:
-                operand1 = token;
-                break;
-            default:
-                operand2 = token;
-            }
-            count++;
+            reader >> hex >> operand2;
         }
-
         uint32_t output = OPERATORS[operation.substr(0, 3)](operand1, operand2);
         int32_t signCheck = output;
 

@@ -2,46 +2,46 @@
 #include <iostream>
 using namespace std;
 
-uint32_t ADD(string op1, string op2)
+uint32_t ADD(uint32_t op1, uint32_t op2)
 {
-    return stoul(op1, 0, 16) + stoul(op2, 0, 16);
+    return op1 + op2;
 }
 
-uint32_t AND(string op1, string op2)
+uint32_t AND(uint32_t op1, uint32_t op2)
 {
-    return stoul(op1, 0, 16) & stoul(op2, 0, 16);
+    return op1 & op2;
 }
 
-uint32_t SUB(string op1, string op2)
+uint32_t SUB(uint32_t op1, uint32_t op2)
 {
-    return stoul(op1, 0, 16) - stoul(op2, 0, 16);
+    return op1 - op2;
 }
 
-uint32_t ASR(string op1, string op2)
+uint32_t ASR(uint32_t op1, uint32_t op2)
 {
-    int32_t op3 = stol(op1, 0, 16);
-    return op3 >> stoi(op2);
+    int32_t op3 = op1;
+    return op3 >> op2;
 }
 
-uint32_t LSL(string op1, string op2)
+uint32_t LSL(uint32_t op1, uint32_t op2)
 {
-    return stoul(op1, 0, 16) << stoi(op2);
+    return op1 << op2;
 }
 
-uint32_t LSR(string op1, string op2)
+uint32_t LSR(uint32_t op1, uint32_t op2)
 {
-    return stoul(op1, 0, 16) >> stoi(op2);
+    return op1 >> op2;
 }
 
-uint32_t NOT(string op1, string op2)
+uint32_t NOT(uint32_t op1, uint32_t op2)
 {
-    return ~stoul(op1, 0, 16);
+    return ~op1;
 }
-uint32_t ORR(string op1, string op2)
+uint32_t ORR(uint32_t op1, uint32_t op2)
 {
-    return stoul(op1, 0, 16) | stoul(op2, 0, 16);
+    return op1 | op2;
 }
-uint32_t XOR(string op1, string op2)
+uint32_t XOR(uint32_t op1, uint32_t op2)
 {
-    return stoul(op1, 0, 16) ^ stoul(op2, 0, 16);
+    return op1 ^ op2;
 }
